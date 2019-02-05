@@ -115,6 +115,18 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Divide(a, b), Is.EqualTo(r));
         }
 
+
+        [TestCase(12, 2, 2, 3)]
+        [TestCase(-6, 3, -1, 2)]
+        [TestCase(40, 2, 0.5, 40)]
+        public void Divide_WithAccumulator(double a, double b, double c, double r)
+        {
+            _uut.Divide(a, b);
+
+            Assert.That(_uut.Divide(c), Is.EqualTo(r));
+        }
+
+
         [TestCase(7, 14, 7)]
         [TestCase(14, 7, 0)]
         [TestCase(54, 22, 10)]
