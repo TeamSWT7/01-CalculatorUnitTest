@@ -152,9 +152,16 @@ namespace Calculator.Test.Unit
         [TestCase(4, 50.24)]
         [TestCase(2, 12.56)]
         [TestCase(-2, 0)]
-        public void AreaCircle_AreaWithPositiveValues(double a, double r)
+        public void AreaCircle_AreaWithPosAndNegValues(double a, double r)
         {
             Assert.That(_uut.AreaCircle(a), Is.EqualTo(r).Within(0.1));
+        }
+
+        [TestCase(5, 4 , 254.46)]
+        public void AreaCircle_AreaWithAccumulator(double a, double b, double r)
+        {
+            _uut.Add(a, b);
+            Assert.That(_uut.AreaCircle(), Is.EqualTo(r).Within(0.1));
         }
     }
 }
