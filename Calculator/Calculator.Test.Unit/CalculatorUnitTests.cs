@@ -54,6 +54,16 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Subtract(a, b), Is.EqualTo(r));
         }
 
+        [TestCase(15, 5, 5, 5)]
+        [TestCase(6, 3, -4, 7)]
+        [TestCase(10, 4.5, 2, 3.5)]
+        public void Subtract_WithAccumulator(double a, double b, double c, double r)
+        {
+
+            _uut.Subtract(a, b);
+            Assert.That(_uut.Subtract(c), Is.EqualTo(r));
+        }
+
         [TestCase(10, 2, 5)]
         [TestCase(21, 3, 7)]
         [TestCase(1, 1, 1)]
