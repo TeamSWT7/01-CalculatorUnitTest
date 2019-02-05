@@ -95,5 +95,26 @@ namespace Calculator
 
             return res;
         }
+
+        public double Modulus(double a, double b)
+        {
+            if (b == 0)
+            {
+                Accumulator = a % 1;
+
+                return Accumulator;
+            }
+
+            Accumulator = a % b;
+
+            return Accumulator;
+        }
+
+        public double Modulus(double a)
+        {
+            Accumulator = a % Accumulator;
+
+            return Accumulator;
+        }
     }
 }

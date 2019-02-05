@@ -77,5 +77,30 @@ namespace Calculator.Test.Unit
         {
             Assert.That(_uut.Divide(a, b), Is.EqualTo(r));
         }
+
+        [TestCase(7, 14, 7)]
+        [TestCase(14, 7, 0)]
+        [TestCase(54, 22, 10)]
+        public void Modulus_ModulusWithPosVal(double a, double b, double r)
+        {
+            Assert.That(_uut.Modulus(a, b), Is.EqualTo(r));
+        }
+
+        //Using Scientific method
+        [TestCase(-20, 3, -2)]
+        [TestCase(-2, 5, -2)]
+        [TestCase(52, -21, 10)]
+        public void Modulus_ModulusWithMinVal(double a, double b, double r)
+        {
+            Assert.That(_uut.Modulus(a, b), Is.EqualTo(r));
+        }
+
+        [TestCase(150, 0, 0)]
+        [TestCase(-2, 0, 0)]
+        [TestCase(5, 0, 0)]
+        public void Modulus_ModulusWithZero_ResultIsZero(double a, double b, double r)
+        {
+            Assert.That(_uut.Modulus(a, b), Is.EqualTo(r));
+        }
     }
 }
