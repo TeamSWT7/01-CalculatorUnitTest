@@ -126,6 +126,12 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Divide(c), Is.EqualTo(r));
         }
 
+        [TestCase(2, 4, 16)]
+        public void Power_PowerWithPosVal(double a, double b, double r)
+        {
+            Assert.That(_uut.Power(a, b), Is.EqualTo(r));
+        }
+
 
         [TestCase(7, 14, 7)]
         [TestCase(14, 7, 0)]
