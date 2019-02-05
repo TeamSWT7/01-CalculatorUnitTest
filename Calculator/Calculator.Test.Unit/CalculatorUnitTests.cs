@@ -37,6 +37,7 @@ namespace Calculator.Test.Unit
         }
 
         [TestCase(5, 10, 5, 20)]
+        [TestCase(5, 10, -5, 10)]
         public void Add_AddWithAccumulator_ResultIsCorrect(double a, double b, double c, double r)
         {
             // Add first result to accumulator
@@ -54,12 +55,38 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Subtract(a, b), Is.EqualTo(r));
         }
 
+        [TestCase(3, 7, 21)]
+        [TestCase(7, 7, 49)]
+        [TestCase(2.5, 4, 10)]
+        public void Multiply_MultiplyPosValues_ResultIsCorrect(double a, double b, double r)
+        {
+            Assert.That(_uut.Multiply(a, b), Is.EqualTo(r));
+        }
+
+        [TestCase(10, -2, -20)]
+        [TestCase(-4, 5, -20)]
+        [TestCase(-5, -5, 25)]
+        public void Multiply_MultiplyPosAndNegValues_ResultIsCorrect(double a, double b, double r)
+        {
+            Assert.That(_uut.Multiply(a, b), Is.EqualTo(r));
+        }
+
+        [TestCase(2, 2, 2, 8)]
+        [TestCase(-5, 3, -2, 30)]
+        [TestCase(2, 3, 0.5, 3)]
+        public void Multiply_MultiplyWithAccumulator_ResultIsCorrect(double a, double b, double c, double r)
+        {
+            _uut.Multiply(a, b);
+
+            Assert.That(_uut.Multiply(c), Is.EqualTo(r));
+        }
+
         [TestCase(10, 2, 5)]
         [TestCase(21, 3, 7)]
         [TestCase(1, 1, 1)]
         public void Divide_DividePosValues_ResultIsCorrect(double a, double b, double r)
         {
-            Assert.That(_uut.Divide(4, 2), Is.EqualTo(2));
+            Assert.That(_uut.Divide(a, b), Is.EqualTo(r));
         }
 
         [TestCase(4, -2, -2)]
