@@ -112,7 +112,26 @@ namespace Calculator
 
         public double Modulus(double a)
         {
-            Accumulator = Accumulator % a;
+            Accumulator = Modulus(Accumulator, a);
+
+            return Accumulator;
+        }
+
+        public double AreaCircle(double a)
+        {
+            if (a < 0)
+            {
+                return 0;
+            }
+
+            Accumulator = Math.Pow(a, 2)*3.14;
+
+            return Accumulator;
+        }
+
+        public double AreaCircle()
+        {
+            Accumulator = Math.Pow(Accumulator, 2) * Math.PI;
 
             return Accumulator;
         }

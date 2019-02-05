@@ -81,6 +81,8 @@ namespace Calculator.Test.Unit
         [TestCase(7, 14, 7)]
         [TestCase(14, 7, 0)]
         [TestCase(54, 22, 10)]
+        [TestCase(55, 7, 6)]
+        [TestCase(6, 4, 2)]
         public void Modulus_ModulusWithPosVal(double a, double b, double r)
         {
             Assert.That(_uut.Modulus(a, b), Is.EqualTo(r));
@@ -103,11 +105,19 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Modulus(a, b), Is.EqualTo(r));
         }
 
-        [TestCase(7, 56, 3, 1)]
+        [TestCase(55, 7, 4, 6)]
         public void Modulus_ModulusWithAccumulator(double a, double b, double c, double r)
         {
             _uut.Modulus(a, b);
             Assert.That(_uut.Modulus(a), Is.EqualTo(r));
+        }
+
+        [TestCase(4, 50.24)]
+        [TestCase(2, 12.56)]
+        [TestCase(-2, 0)]
+        public void AreaCircle_AreaWithPositiveValues(double a, double r)
+        {
+            Assert.That(_uut.AreaCircle(a), Is.EqualTo(r).Within(0.1));
         }
     }
 }
