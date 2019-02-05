@@ -112,7 +112,7 @@ namespace Calculator
 
         public double Modulus(double a)
         {
-            Accumulator = a % Accumulator;
+            Accumulator = Accumulator % a;
 
             return Accumulator;
         }
