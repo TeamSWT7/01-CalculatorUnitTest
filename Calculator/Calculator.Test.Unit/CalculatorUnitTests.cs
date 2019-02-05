@@ -105,11 +105,11 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Modulus(a, b), Is.EqualTo(r));
         }
 
-        [TestCase(55, 7, 4, 6)]
+        [TestCase(55, 7, 4, 2)]
         public void Modulus_ModulusWithAccumulator(double a, double b, double c, double r)
         {
             _uut.Modulus(a, b);
-            Assert.That(_uut.Modulus(a), Is.EqualTo(r));
+            Assert.That(_uut.Modulus(c), Is.EqualTo(r));
         }
 
         [TestCase(4, 50.24)]
