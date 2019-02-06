@@ -127,9 +127,32 @@ namespace Calculator.Test.Unit
         }
 
         [TestCase(2, 4, 16)]
+        [TestCase(3, 5, 243)]
+        [TestCase(4, 4, 256)]
         public void Power_PowerWithPosVal(double a, double b, double r)
         {
             Assert.That(_uut.Power(a, b), Is.EqualTo(r));
+        }
+
+        [TestCase(5, 0, 1)]
+        [TestCase(-4, 0, 1)]
+        [TestCase(0, 0, 1)]
+        [TestCase(3, -4, 0.012)]
+        [TestCase(0, 4, 0)]
+        [TestCase(-2, 3, -8)]
+        public void Power_PowerWithCornerCases(double a, double b, double r)
+        {
+            Assert.That(_uut.Power(a, b), Is.EqualTo(r).Within(0.01));
+        }
+
+        [TestCase(2, 3, 4, 4096)]
+        [TestCase(-2, -3, -4, 4096)]
+        [TestCase(4, -3, -2, 4096)]
+        public void Power_PowerWithAccumulator(double a, double b, double c, double r)
+        {
+            _uut.Power(a, b);
+
+            Assert.That(_uut.Power(c), Is.EqualTo(r));
         }
 
 
